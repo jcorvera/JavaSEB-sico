@@ -1,6 +1,7 @@
 package com.amazonviewer;
 
 import java.util.Scanner; 
+import com.amazonviewer.models.*;
 
 public class AmazonViewer {
 
@@ -10,7 +11,7 @@ public class AmazonViewer {
 		
 	}
 
-	private static void showMenu() {
+	public static void showMenu() {
 		int opcion = 0; 
 		int countRows=0;
 		Scanner readInput;
@@ -32,21 +33,82 @@ public class AmazonViewer {
 			opcion = readInput.nextInt();
 			switch(opcion) {
 				case 1:
-					System.out.println("¡ Lista de Movies !");
+					showMovie();
 					break;
 				case 2:
-					System.out.println("¡ Lista de Series !");
+					showSerie();
 					break;
 				case 3:
-					System.out.println("¡ Lista de Books !");
+					showBook();
 					break;
 				case 4:
-					System.out.println("¡ Lista de Magazines !");
+					showMagazine();
 					break;
 				default:
 					System.out.println("La opcion deseada no existe! :(");
 				break;
 			}
 		}while(opcion !=0);
+	}
+	
+	public static void showMovie() {
+		int exit=0;
+		Movie objetoMovie = new Movie();
+		
+		do {
+			System.out.println();
+			System.out.println(":: Movies ::");
+			System.out.println();
+			
+		}while(exit != 0);
+	}
+	
+	public static void showBook() {
+		int exit=0;
+		Book objetoBook = new Book();
+		
+		do {
+			System.out.println();
+			System.out.println(":: Books ::");
+			System.out.println();
+			
+		}while(exit != 0);
+	}
+	
+	public static void showChacter() {
+		int exit=0;
+		Chacter objetoMagazine = new Chacter();
+		
+		do {
+			System.out.println();
+			System.out.println(":: Magazines ::");
+			System.out.println();
+			
+		}while(exit != 0);
+	}
+	
+	public static void showMagazine() {
+		int exit=0;
+		Magazine objetoMovie = new Magazine();
+		
+		do {
+			System.out.println();
+			System.out.println(":: Movies ::");
+			System.out.println();
+			
+		}while(exit != 0);
+	}
+	
+	public static void showSerie() {
+		int exit=0;
+		Serie objetoSerie = new Serie();
+		
+		do {
+			System.out.println();
+			System.out.println(":: Series ::");
+			System.out.println();
+			
+		}while(exit != 0);
+		
 	}
 }
