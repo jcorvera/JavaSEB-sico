@@ -2,13 +2,13 @@ package com.amazonviewer;
 
 import java.util.Scanner; 
 import com.amazonviewer.models.*;
+import java.util.Date; 
 
 public class AmazonViewer {
 
 	public static void main(String[] args) {
-		
-		showMenu();
-		
+		Movie objetoMovie = new Movie("Coco","Animacion",120,(short)2019);
+		System.out.println(objetoMovie);
 	}
 
 	public static void showMenu() {
@@ -25,6 +25,8 @@ public class AmazonViewer {
 		System.out.println("2. Series");
 		System.out.println("3. Books");
 		System.out.println("4. Magazines");
+		System.out.println("5. Report");
+		System.out.println("6. Report Today");
 		System.out.println("");
 		
 		
@@ -44,6 +46,12 @@ public class AmazonViewer {
 				case 4:
 					showMagazine();
 					break;
+				case 5:
+					makeReport();
+					break;
+				case 6:
+					makeReport(new Date());
+					break;
 				default:
 					System.out.println("La opcion deseada no existe! :(");
 				break;
@@ -53,7 +61,6 @@ public class AmazonViewer {
 	
 	public static void showMovie() {
 		int exit=0;
-		Movie objetoMovie = new Movie();
 		
 		do {
 			System.out.println();
@@ -77,7 +84,7 @@ public class AmazonViewer {
 	
 	public static void showChacter() {
 		int exit=0;
-		Chacter objetoMagazine = new Chacter();
+		//Chapter objetoMagazine = new Chapter();
 		
 		do {
 			System.out.println();
@@ -101,7 +108,7 @@ public class AmazonViewer {
 	
 	public static void showSerie() {
 		int exit=0;
-		Serie objetoSerie = new Serie();
+		//Serie objetoSerie = new Serie();
 		
 		do {
 			System.out.println();
@@ -109,6 +116,14 @@ public class AmazonViewer {
 			System.out.println();
 			
 		}while(exit != 0);
+		
+	}
+	
+	public static void makeReport() {
+	
+	}
+	
+	public static void makeReport(Date date) {
 		
 	}
 }
