@@ -1,9 +1,11 @@
 package com.amazonviewer.models;
 
+import java.util.ArrayList;
+
 public class Serie extends Film {
 	
 
-	private Chapter chaters;
+	private ArrayList<Chapter> chaters;
 	private int sessionQuantity;
 	
 	public Serie(String title, String creator, int duration,int sessionQuantity) {
@@ -11,11 +13,11 @@ public class Serie extends Film {
 		this.sessionQuantity = sessionQuantity;
 	}
 
-	public Chapter getChaters() {
+	public ArrayList<Chapter> getChaters() {
 		return chaters;
 	}
 
-	public void setChaters(Chapter chaters) {
+	public void setChaters(ArrayList<Chapter> chaters) {
 		this.chaters = chaters;
 	}
 

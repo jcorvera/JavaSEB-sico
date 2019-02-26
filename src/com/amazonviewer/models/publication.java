@@ -8,6 +8,14 @@ public class publication {
 	protected String editorial;
 	protected String [] authors;
 	
+	
+	
+	public publication(String title, Date editionDate, String editorial, String[] authors) {
+		this.title = title;
+		this.editionDate = editionDate;
+		this.editorial = editorial;
+		this.authors = authors;
+	}
 	public String getTitle() {
 		return title;
 	}

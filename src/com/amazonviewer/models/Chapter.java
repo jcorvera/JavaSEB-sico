@@ -17,9 +17,5 @@ public class Chapter extends Movie {
 	public void setSessionNumber(int sessionNumber) {
 		this.sessionNumber = sessionNumber;
 	}
-	
-	public void see() {
 		
-	}
-	
 }
