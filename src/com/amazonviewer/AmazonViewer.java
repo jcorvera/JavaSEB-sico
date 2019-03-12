@@ -1,11 +1,18 @@
 package com.amazonviewer;
 
-import java.util.Scanner; 
-import com.amazonviewer.models.*;
-
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Date; 
+import java.util.Scanner;
+
+import com.amazonviewer.models.Book;
+import com.amazonviewer.models.Movie;
+import com.amazonviewer.models.*;
+import com.amazonviewer.models.Serie;
+import com.jcorvera.reports.Report; 
 
 public class AmazonViewer {
 	
@@ -58,7 +65,7 @@ public class AmazonViewer {
 					makeReport();
 					break;
 				case 6:
-					makeReport(new Date());
+					
 					break;
 				default:
 					System.out.println("La opcion deseada no existe! :(");
@@ -67,10 +74,11 @@ public class AmazonViewer {
 		}while(opcion !=0);
 	}
 	
+	private static ArrayList<Movie> movies;
 	
 	public static void showMovie() {
 		int exit=1;
-		ArrayList<Movie> movies = Movie.makeMovies();
+		movies = Movie.makeMovies();
 		do {
 			System.out.println();
 			System.out.println(":: Movies ::");
@@ -164,7 +172,6 @@ public class AmazonViewer {
 	
 	public static void showMagazine() {
 		int exit=0;
-		Magazine objetoMovie = new Magazine();
 		
 		do {
 			System.out.println();
@@ -176,22 +183,61 @@ public class AmazonViewer {
 	
 	public static void showSerie() {
 		int exit=0;
-		//Serie objetoSerie = new Serie();
+		HashSet<Serie> series = Serie.makeSeries();
 		
 		do {
 			System.out.println();
 			System.out.println(":: Series ::");
 			System.out.println();
 			
+			Iterator<Serie> serie = series.iterator();
+			while(serie.hasNext())
+				System.out.println(serie.next());
+			
+			System.out.println("0. Regresar al menu");
+			System.out.println();
+			System.out.println("¿ Cuál Serie deseas ver?");
+			System.out.println(": ");
+			
+			readInput = scanner();
+			int response = Integer.valueOf(readInput.nextLine());
+			
+			if(response == 0) {
+				showMenu();
+			}
+			
+			boolean exist= series.contains(new Serie("response","response",2,3));
+			if(exist) {
+				System.out.println("True");
+			}else {
+				System.out.println("false");
+			}
+			
+			
 		}while(exit != 0);
 		
 	}
 	
-	public static void makeReport() {
-	
-	}
-	
-	public static void makeReport(Date date) {
+	public static void makeReport()  {
+		String content="";
+		Report report= new Report();
+		report.setNameFile("Reporte 2");
+		report.setExtension("txt");
+		report.setTitleFile("Reporte");
+		
+		for(Movie movie : movies) {
+			if(movie.getIsViewed()) {
+				content += movie.toString();
+			}
+		}
+		report.setContentFile(content);
+		try {
+			report.makeReport();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
+
 }

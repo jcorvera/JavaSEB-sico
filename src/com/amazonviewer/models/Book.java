@@ -1,7 +1,8 @@
 package com.amazonviewer.models;
 
-import java.util.LinkedList;
 import java.util.Date;
+import java.util.LinkedList;
+
 import com.amazonviewer.interfaces.IVisualizable; 
 
 public class Book extends publication implements IVisualizable{

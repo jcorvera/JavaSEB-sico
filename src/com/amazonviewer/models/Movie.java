@@ -1,7 +1,6 @@
 package com.amazonviewer.models;
 import java.util.ArrayList;
 import java.util.Date;
-import java.lang.Object;
 
 import com.amazonviewer.interfaces.IVisualizable;;
 
